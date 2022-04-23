@@ -31,10 +31,7 @@
 			<div class="container">
 				<h1 class="title">Simpson API</h1>
 
-				<button onClick="fetchSimpsonJSON()">Load a new character</button>
-
-				<div class="content" id="simpson"></div>
-
+				<div class="content" id="simpson" style="display: grid; grid-template-columns: 1fr 1fr;width: 50%;margin: auto;"></div>
 			</div>
 		</section>
 
@@ -58,8 +55,14 @@ axios.get(url)
 	// console.log('data decoded from JSON:', simpson[0]);
 	// Build a block of HTML
 	const simpsonHtml = `
-	  <p><strong>${simpson[0].character}</strong></p>
-	  <img src="${simpson[0].image}" />
+	<article>
+		<quote>${simpson[0].quote}</quote>
+		<p><strong>${simpson[0].character}</strong></p>
+	</article>
+	<article>
+		<img src="${simpson[0].image}" />
+	</article>
+	<button onClick=fetchSimpsonJSON()>Load a new character</button>
 	`;
 	document.querySelector('#simpson').innerHTML = simpsonHtml;
   });
